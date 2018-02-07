@@ -1,0 +1,33 @@
+<ion-header class="custom-header-inner">
+    <ion-navbar hideBackButton>
+        <ion-buttons left>
+            <button ion-button ios-arrow-back class="arrow-icon" (click)="backBtnFunc()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons right>
+             <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>SOCIAL MEDIA</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="social-media">
+        <div class="media-banner">
+            <img src="assets/imgs/media-banner.png">
+        </div>
+        <h2 class="follow-heading">FOLLOW US</h2>
+        <!-- <div class="social-icons">
+            <span class="facebook"><img src="assets/imgs/facebook.png" onclick="window.plugins.socialsharing.shareViaFacebook('Message via Facebook', null /* img */, null /* url */, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})"></span>
+            <span class="twitter" onclick="window.plugins.socialsharing.shareVia('com.twitter.android', 'Message via Twitter', null, null, 'http://www.x-services.nl', function(){console.log('share ok')}, function(msg) {alert('error: ' + msg)})"><ion-icon ios="logo-twitter" md="logo-twitter"></ion-icon></span>
+            <span class="google" onclick="window.plugins.socialsharing.shareVia('com.google.android.apps.plus', 'Message via Google+', null, null, 'http://www.x-services.nl', function(){console.log('share ok')}, function(msg) {alert('error: ' + msg)})"> <ion-icon ios="logo-google" md="logo-google"></ion-icon></span>
+        </div> -->
+        <div class="social-icons">
+            <span class="facebook"><img src="assets/imgs/facebook.png" (click)="facebookFunc()" ></span>
+            <span class="instagram"><ion-icon ios="logo-instagram" md="logo-instagram" (click)="instagramFunc()"></ion-icon></span>
+            <span class="twitter"><ion-icon ios="logo-twitter" md="logo-twitter" (click)="twitterFunc()"></ion-icon></span>
+        </div>
+    </div>
+</ion-content>

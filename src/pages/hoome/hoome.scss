@@ -1,0 +1,55 @@
+page-hoome {
+    .image-slider .slide-zoom img{width: 100%;}
+    .container {
+        background-color: #45dc88;
+        border-radius: 0;
+        padding: 15px 20px;
+        margin: 0;
+        color: #fff;
+        font-size: 15px;
+
+        .inner-text{
+            display: inline-block;
+            width: 75%;
+            vertical-align: middle;
+            line-height: 22px;
+        }
+
+        .inner-text-btn{
+            display: inline-block;
+            vertical-align: middle;
+            float: right;
+        }
+    }
+    
+    .darker {
+        border-color: rgb(14, 12, 12);
+        background-color: rgba(107, 107, 107, 0.267);
+    }
+    
+    .container::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+    
+
+    .time-right {
+        border-radius: 25px;
+        font-weight: 500;
+        background-color: transparent;
+        border: 1px solid #fff;
+        padding: 7px;
+        color: #fff;
+        font-size: 15px;
+        min-width: 60px;
+    }
+    
+    .time-left {
+        float: left;
+        font-size: 3.5vw;
+        font-family: inherit;
+        font-weight: 500;
+        color: #9C9D9D;
+    }
+}

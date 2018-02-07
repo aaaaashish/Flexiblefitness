@@ -1,0 +1,31 @@
+<ion-header class="custom-header-inner">
+    <ion-navbar hideBackButton>
+        <ion-buttons left>
+            <button ion-button ios-arrow-back class="arrow-icon" (click)="backBtnFunc()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons right>
+            <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>LOG YOUR OWN FOOD</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-searchbar no-line class="content-search" placeholder="Search" [(ngModel)]="searchText" (search)="searchLogFood($event)"></ion-searchbar>
+    <ion-card class="block-card suggested-card" *ngIf="preFoodArr.length!=0">
+        <ion-card-header class="card-title" style="text-transform: none;">Previous Foods</ion-card-header>
+        <ion-list no-lines class="food-list pre-food-list">
+            <button ion-item (click)="selectFoodFromPreFood(data)" *ngFor="let data of preFoodArr">{{data.foodName}} - {{data.foodCal}}</button>
+        </ion-list>
+    </ion-card>
+    <ion-list no-lines class="food-list">
+        <ion-card-header class="card-title search-head" *ngIf="searchArr.length!=0">Search Results</ion-card-header>
+        <button ion-item *ngFor="let data of searchArr" (click)="selectFoodFromList(data)">{{data.foodName}}</button>
+    </ion-list>        
+    <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

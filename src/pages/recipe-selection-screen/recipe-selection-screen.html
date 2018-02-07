@@ -1,0 +1,39 @@
+<ion-header class="custom-header-inner">
+    <ion-navbar hideBackButton>
+        <ion-buttons left>
+            <button ion-button ios-arrow-back class="arrow-icon" (click)="backBtnFunc()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons right>
+            <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>Recipe Selection</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="bg card-background-page">
+    <ion-list class="workout-inner free-user-list">    
+        <ion-card class="gym-img-row" *ngFor="let data of recipeArr">
+            <div class="free-user-layer"></div>
+            <img src="{{data.foodImage}}">
+            <div class="img-text today-btns">
+                <div class="workout-name">{{data.recipeName}}</div>
+                <ion-row class="lst-two-btn">
+                    <ion-col col-6 right>
+                        <button ion-button color="danger" (click)="viewRecipe(data)" block outline round>VIEW RECIPE</button>
+                    </ion-col>
+                    <ion-col col-6 left>
+                        <button ion-button color="danger" (click)="selectFunc(data)" block outline round>SELECT</button>
+                    </ion-col>
+                </ion-row>
+            </div>
+        </ion-card>        
+    </ion-list>
+    <ion-card *ngIf="noListFound">
+        <ion-card-content class="no-rec-found">
+            No record found for recipe selection.
+        </ion-card-content>
+    </ion-card>
+</ion-content>

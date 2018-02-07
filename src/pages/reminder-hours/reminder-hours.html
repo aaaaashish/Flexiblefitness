@@ -1,0 +1,35 @@
+<ion-header class="custom-header-inner">
+  <ion-navbar hideBackButton>
+      <ion-buttons left>
+          <button ion-button ios-arrow-back class="arrow-icon" (click)="backBtnFunc()">
+              <ion-icon name="arrow-back"></ion-icon>
+          </button>
+      </ion-buttons>
+      <ion-buttons right>
+          <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+              <ion-icon name="arrow-back"></ion-icon>
+          </button>
+      </ion-buttons>
+      <ion-title>FLEXIBLE FITNESS</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="measurement-screen">
+        <div class="measurement-head">What time of day would you like to receive workout reminders?</div>
+        <div class="question-field">
+            <ion-list>
+                <ion-item>
+                    <ion-label style="color: #000;">Time</ion-label>
+                    <ion-datetime displayFormat="hh:mm A" [(ngModel)]="user.hrValue"></ion-datetime>
+                </ion-item>
+                <label *ngIf="hrsErr">
+                    <p class="error" style="margin-top:5px;">Enter valid hours.</p>
+                </label>
+            </ion-list>
+        </div>
+        <div class="black-btn">
+            <button ion-button block (click)="submitFunc()" [disabled]="user.hrValue==null">SUBMIT</button>
+        </div>
+    </div>
+</ion-content>
+

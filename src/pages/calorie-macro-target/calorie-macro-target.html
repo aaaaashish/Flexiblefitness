@@ -1,0 +1,34 @@
+<ion-header class="custom-header-inner">
+    <ion-navbar hideBackButton>
+        <ion-buttons left>
+            <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons right>
+            <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>FLEXIBLE FITNESS</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="measurement-screen">
+        <div class="measurement-head">Have you been following the calorie and macro targets set for you?</div>
+        <div class="global-radio">
+            <div class="radio-inner">
+                <input type="radio" id="calMacroRadio1" name="calMacroRadio" value="Yes" [(ngModel)]="calMacroValue">
+                <label class="pd-top" for="calMacroRadio1">Yes</label>
+            </div>
+            <div class="radio-inner">
+                <input type="radio" id="calMacroRadio2" name="calMacroRadio" value="No" [(ngModel)]="calMacroValue">
+                <label class="pd-top" for="calMacroRadio2">No</label>
+            </div>
+        </div>
+        <div class="black-btn">
+            <button ion-button block (click)="okFunc()">OK</button>
+        </div>
+    </div>
+</ion-content>
+

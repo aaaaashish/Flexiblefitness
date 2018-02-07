@@ -1,0 +1,62 @@
+<ion-content>
+    <div class="nutrition">
+        <div class="question-field form-block">
+            <ion-list>
+                <ion-item>
+                    <ion-label stacked>Enter your updated weight</ion-label>
+                    <ion-input type="text" placeholder="Weight" [(ngModel)]="user.weight" (keyup)="weightBlurFunc()" (ionBlur)="weightBlurFunc()" [attr.maxlength]="5"></ion-input>
+                </ion-item>
+                <label *ngIf="weightErr">
+                    <p class="error">Enter valid weight.</p>
+                </label>
+            </ion-list>
+            <div class="black-btn width-btn-50">
+                <button ion-button [disabled]="user.weight=='' || weightErr==true" (click)="saveFunc()">SAVE</button>
+                <button ion-button class="cancel-btn" (click)="cancelFunc()">CANCEL</button>
+            </div>
+        </div>      
+        <ion-list no-lines class="nutriton-list">    
+            <ion-item>
+                <h2 class="card-title">WEIGHT HISTORY</h2>
+                <div class="custom-table">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Weight</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>01/02/2017</td>
+                                <td>30 Kg</td>
+                            </tr>
+                            <tr>
+                                <td>03/03/2017</td>
+                                <td>40 Kg</td>
+                            </tr>
+                            <tr>
+                                <td>01/04/2017</td>
+                                <td>45 Kg</td>
+                            </tr>
+                            <tr>
+                                <td>03/05/2017</td>
+                                <td>48 Kg</td>
+                            </tr>
+                            <tr>
+                                <td>01/06/2017</td>
+                                <td>55 Kg</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </ion-item>
+            <ion-item>
+                <h2 class="card-title">GRAPH</h2>
+                <div class="graph" style="width: 100%;">
+                    <canvas #lineCanvas></canvas>
+                </div>
+            </ion-item>
+        </ion-list>      
+    </div>
+</ion-content>

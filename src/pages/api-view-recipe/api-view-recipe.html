@@ -1,0 +1,38 @@
+<ion-header class="custom-header-inner">
+    <ion-navbar hideBackButton>
+        <ion-buttons left>
+            <button ion-button ios-arrow-back class="arrow-icon" (click)="backBtnFunc()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons right>
+            <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>Recipe Instructions</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="bg">
+    <ion-list class="workout-inner workout-video free-user-list">    
+        <ion-card class="gym-img-row">
+            <div class="free-user-layer"></div>
+            <img [src]="recipeObj.img">
+            <div class="img-text" >
+                <div class="workout-name">{{recipeObj.name}} - {{recipeObj.cal}} calories</div>
+            </div>
+        </ion-card>    
+        <ion-card class="block-card">
+            <div class="description">
+                <h2 class="card-title">Ingredients</h2>
+                <ul>
+                    <li class="ing-list" *ngFor="let data of ingListArr">{{data.ingredientName}} - {{data.ingredientQty}} {{data.unit}}</li>
+                </ul>
+            </div>
+            <div class="rules">
+                <h2 class="card-title">Instructions</h2>
+                <p>{{recipeObj.ins}}</p>
+            </div>
+        </ion-card>
+    </ion-list>
+</ion-content>

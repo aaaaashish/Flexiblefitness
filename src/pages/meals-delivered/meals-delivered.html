@@ -1,0 +1,18 @@
+<ion-content>
+    <div class="measurement-screen" style="margin: 10% auto 0;">
+        <div class="measurement-head">Do you want to have your meals delivered to your door? An entire week’s set of meals will be dropped off at your doorstep by Sunday, just in time for you to start the meal plan for the week.</div>
+        <div class="global-radio">
+            <div class="radio-inner">
+                <input type="radio" id="mealsdeliver1" name="mealsdeliverRadio" value="YES" [(ngModel)]="mealsdeliverStatus">
+                <label class="pd-top" for="mealsdeliver1">Yes</label>
+            </div>
+            <div class="radio-inner">
+                <input type="radio" id="mealsdeliver2" name="mealsdeliverRadio" value="NO" [(ngModel)]="mealsdeliverStatus">
+                <label class="pd-top" for="mealsdeliver2">No</label>
+            </div>
+        </div>
+        <div class="black-btn">
+            <button ion-button block (click)="submitFunc()">SUBMIT</button>
+        </div>
+    </div>
+</ion-content>

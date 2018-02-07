@@ -1,0 +1,71 @@
+<ion-header class="custom-header-inner">
+    <ion-navbar hideBackButton>
+        <ion-buttons left>
+            <button ion-button ios-arrow-back class="arrow-icon" (click)="backBtnFunc()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons right>
+            <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title text-center>MY ACCOUNT</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="my-account form-block" style="padding-top: 30px;">
+        <div class="account-form">
+            <ion-list>
+                <div class="change-plan" (click)="changePlan()">
+                    <p>Change subscription plan</p>
+                </div>
+                <ion-item>
+                    <ion-input type="email" class="email-icn" placeholder="Email" [(ngModel)]="user.email" [attr.maxlength]="50" (ionBlur)="emailBlurFunc()" (keyup)="emailBlurFunc()" [readonly]="true"></ion-input>
+                </ion-item>
+                <label *ngIf="emailErr">
+                    <p class="error">Enter a valid email address.</p>
+                </label>
+                <ion-item>
+                    <ion-input type="text" class="user_icn" placeholder="First Name" [(ngModel)]="user.fName" [attr.maxlength]="20" (ionBlur)="fNameBlurFunc()" (keyup)="fNameBlurFunc()"></ion-input>
+                </ion-item>
+                <label *ngIf="fNameErr">
+                    <p class="error">{{fNameErrMsg}}</p>
+                </label>
+                <ion-item>
+                    <ion-input type="text" class="user_icn" placeholder="Last Name" [(ngModel)]="user.lName" [attr.maxlength]="20" (ionBlur)="lNameBlurFunc()" (keyup)="lNameBlurFunc()"></ion-input>
+                </ion-item>
+                <label *ngIf="lNameErr">
+                    <p class="error">{{lNameErrMsg}}</p>
+                </label>
+                <ion-item>
+                    <!-- <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MMM YYYY" placeholder="DD/MM/YYYY" [(ngModel)]="user.DOB" class="dob_date" [max]="max"></ion-datetime> -->
+                    <div class="age-div">Age - {{user.age}}</div>
+                </ion-item>
+                <div class="custom-select">
+                    <ion-item class="select-field" >
+                        <ion-label class="cntry-lbl">Gender</ion-label>
+                        <ion-select class="cntry-opt my-ac-gender" [(ngModel)]="user.gender" [disabled]="true">
+                            <ion-option value="1">Male</ion-option>
+                            <ion-option value="2">Female</ion-option>
+                        </ion-select>
+                    </ion-item>
+                </div>
+            </ion-list>
+        </div>
+        <div class="account-button-block">
+            <div class="black-btn width-btn-50">
+                <button ion-button [disabled]="user.email=='' || emailErr==true || user.fName=='' || fNameErr==true || user.lName=='' || lNameErr==true" (click)="updateFunc()">UPDATE</button>
+                <button ion-button class="cancel-btn" (click)="cancelFunc()">CANCEL</button>
+            </div>
+            <div class="red-outline-btn" *ngIf="changePStatus">
+                <button ion-button color="danger" (click)="changePassw()" outline round block>CHANGE PASSWORD</button>
+            </div>
+        </div>
+    </div>
+</ion-content>
+
+
+
+
+

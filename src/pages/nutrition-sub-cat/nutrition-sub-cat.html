@@ -1,0 +1,28 @@
+<ion-header class="custom-header-inner">
+    <ion-navbar hideBackButton>
+        <ion-buttons left>
+            <button ion-button ios-arrow-back class="arrow-icon" (click)="backBtnFunc()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons right>
+            <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>{{recipeObj.title}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="bg card-background-page">
+    <ion-list class="workout-inner free-user-list">    
+        <ion-card class="gym-img-row" *ngFor="let data of recipeObj.listArr">
+            <div class="free-user-layer"></div>
+            <img [src]="data.img">
+            <div class="img-text today-btns">
+                <div class="workout-name">{{data.recipeName}}</div>
+            </div>
+        </ion-card>
+    </ion-list>  
+</ion-content>
+
+  

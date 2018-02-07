@@ -1,0 +1,91 @@
+<ion-header class="cus-header">
+    <ion-navbar hideBackButton>
+        <ion-buttons left>
+            <button ion-button ios-arrow-back class="arrow-icon" (click)="login()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons right>
+            <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>SIGN UP</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="bg-image">
+    <div class="login sign-up">
+        <div class="signup-heading-text">
+            <p>Flexible Fitness is at your service to help you manage a healthy lifestyle your way.</p>
+        </div>
+        <div class="block-btn creat-btn">
+            <button ion-button block class="facebook-btn" (click)="fbSignupFunc()">SIGN UP WITH FACEBOOK</button>
+        </div>
+        <form [formGroup]="signupForm">
+            <div class="login-field">
+                <ion-list>
+                    <ion-item [ngClass]="{'error-border': (signupForm.get('email').hasError('pattern') || signupForm.get('email').hasError('required')) && signupForm.get('email').touched }">
+                        <ion-input type="email" class="email-field" formControlName="email" [(ngModel)]="signup.email" placeholder="Email" [attr.maxlength]="50"></ion-input>
+                    </ion-item>
+                    <label *ngIf="(signupForm.get('email').hasError('pattern') || signupForm.get('email').hasError('required') ) && signupForm.get('email').touched">   
+                        <p class="error" *ngIf="signupForm.get('email').hasError('required') && signupForm.get('email').touched">Enter an email address.</p>
+                        <p class="error" *ngIf="signupForm.get('email').hasError('pattern') && signupForm.get('email').touched">Enter a valid email address.</p>
+                    </label>
+                    <ion-item [ngClass]="{'error-border': (signupForm.get('password').hasError('pattern') || signupForm.get('password').hasError('required')) && signupForm.get('password').touched }">
+                        <ion-input type="password" class="password-field" formControlName="password" [(ngModel)]="signup.password" placeholder="Password" [attr.maxlength]="16"></ion-input>
+                    </ion-item>
+                    <label *ngIf="(signupForm.get('password').hasError('pattern') || signupForm.get('password').hasError('required')) && signupForm.get('password').touched">
+                        <p class="error" *ngIf="signupForm.get('password').hasError('required') && signupForm.get('password').touched">Enter a password.</p>
+                        <p class="error" *ngIf="signupForm.get('password').hasError('pattern') && signupForm.get('password').touched">Password must be between 8 and 16 characters and must contain at least one letter, number, and special character.</p>
+                    </label>  
+                    <ion-item [ngClass]="{'error-border': (signupForm.get('firstName').hasError('maxlength') || signupForm.get('firstName').hasError('minlength') || signupForm.get('firstName').hasError('pattern') || signupForm.get('firstName').hasError('required') ) && signupForm.get('firstName').touched }">
+                        <ion-input type="text" class="firstname-field" formControlName="firstName" [(ngModel)]="signup.firstName" placeholder="First Name" [attr.maxlength]="20"></ion-input>
+                    </ion-item>
+                    <label *ngIf="(signupForm.get('firstName').hasError('maxlength') || signupForm.get('firstName').hasError('minlength') || signupForm.get('firstName').hasError('pattern') || signupForm.get('firstName').hasError('required') ) && signupForm.get('firstName').touched">
+                        <p class="error" *ngIf="signupForm.get('firstName').hasError('required') && signupForm.get('firstName').touched">Enter your first name.</p>
+                        <p class="error" *ngIf="signupForm.get('firstName').hasError('pattern') && signupForm.get('firstName').touched">First name accepts character only.</p>
+                        <p class="error" *ngIf="signupForm.get('firstName').hasError('minlength') && signupForm.get('firstName').touched">Enter at least two characters for your first name.</p>
+                    </label>
+                    <ion-item [ngClass]="{'error-border': (signupForm.get('lastName').hasError('maxlength') || signupForm.get('lastName').hasError('minlength') || signupForm.get('lastName').hasError('pattern') || signupForm.get('lastName').hasError('required') ) && signupForm.get('lastName').touched }">
+                        <ion-input type="text" class="lastname-field" formControlName="lastName" [(ngModel)]="signup.lastName" placeholder="Last Name" [attr.maxlength]="20"></ion-input>
+                    </ion-item>
+                    <label *ngIf="(signupForm.get('lastName').hasError('maxlength') || signupForm.get('lastName').hasError('minlength') || signupForm.get('lastName').hasError('pattern') || signupForm.get('lastName').hasError('required') ) && signupForm.get('lastName').touched">   
+                        <p class="error" *ngIf="signupForm.get('lastName').hasError('required') && signupForm.get('lastName').touched">Enter your last name.</p>
+                        <p class="error" *ngIf="signupForm.get('lastName').hasError('pattern') && signupForm.get('lastName').touched">Last name accepts character only. </p>
+                        <p class="error" *ngIf="signupForm.get('lastName').hasError('minlength') && signupForm.get('lastName').touched">Enter at least two characters for your last name.</p>
+                    </label>
+                    <ion-item [ngClass]="{'error-border': signupForm.get('DOB').hasError('required') && signupForm.get('DOB').touched }">
+                        <!--ion-input type="text" class="dob-field" tappable formControlName="DOB" [(ngModel)]="signup.DOB" readonly (click)="dPicker()" placeholder="DD/MM/YYYY"></ion-input-->
+                        <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MMM YYYY" placeholder="DD/MM/YYYY" formControlName="DOB" [(ngModel)]="signup.DOB" class="dob-date" [max]="max"></ion-datetime>
+                    </ion-item>
+                    <label *ngIf="signupForm.get('DOB').hasError('required') && signupForm.get('DOB').touched">   
+                        <p class="error" *ngIf="signupForm.get('DOB').hasError('required') && signupForm.get('DOB').touched">Select date of birth.</p>
+                    </label>
+                    <ion-list>
+                        <ion-item class="select-field signup-select" [ngClass]="{'error-border': signupForm.get('country').hasError('required') && signupForm.get('country').touched }">
+                            <ion-label class="cntry-lbl">Country</ion-label>
+                            <ion-select formControlName="country" [(ngModel)]="signup.country" class="cntry-opt">
+                                <ion-option value="{{data.code}}" *ngFor="let data of countryArr">{{data.name}}</ion-option>
+                            </ion-select>
+                        </ion-item>
+                    </ion-list>
+                    <label *ngIf="signupForm.get('country').hasError('required') && signupForm.get('country').touched">   
+                        <p class="error" *ngIf="signupForm.get('country').hasError('required') && signupForm.get('country').touched">Select a country.</p>
+                    </label>
+                </ion-list>
+            </div>
+            <div class="policy-text">
+                <p>By Creating an account, you agree to Flexible Fitness
+                    <span (click)="goToPP()"><a>Privacy Policy</a></span> and <span (click)="goToTU()"><a>Terms of Use</a></span>
+                </p>
+            </div>
+            <div class="block-btn creat-btn">
+                <button ion-button block class="login-btn" (click)="signUpFunc()" [disabled]="signupForm.invalid">CREATE ACCOUNT</button>
+                <!-- <button ion-button block class="login-btn" (click)="signUpFunc()">CREATE ACCOUNT</button> -->
+            </div>
+        </form>
+        <div class="footer-text">
+            <p>Already have an account? <span><a (click)="login()">LOGIN</a></span></p>
+        </div>
+    </div>
+</ion-content>

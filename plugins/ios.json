@@ -1,0 +1,82 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "com.synconset.imagepicker": {
+            "PHOTO_LIBRARY_USAGE_DESCRIPTION": "Used for selecting images from gallary",
+            "PACKAGE_NAME": "com.flexibleFitness"
+        },
+        "cordova-plugin-actionsheet": {
+            "PACKAGE_NAME": "com.flexibleFitness"
+        },
+        "cordova-plugin-admob-free": {
+            "PACKAGE_NAME": "com.flexibleFitness"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.flexibleFitness"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.flexibleFitness"
+        },
+        "cordova-plugin-facebook4": {
+            "APP_ID": "511158869284420",
+            "APP_NAME": "Flexible Fitness",
+            "PACKAGE_NAME": "com.flexibleFitness"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.flexibleFitness"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.flexibleFitness"
+        },
+        "cordova-plugin-ionic-webview": {
+            "PACKAGE_NAME": "com.flexibleFitness"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.flexibleFitness"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.flexibleFitness"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.flexibleFitness"
+        },
+        "cordova-plugin-stripe": {
+            "PACKAGE_NAME": "com.flexibleFitness"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.flexibleFitness"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "com.flexibleFitness"
+        },
+        "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "com.flexibleFitness"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
+        },
+        "cordova-plugin-browsertab": {
+            "PACKAGE_NAME": "com.flexibleFitness"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-promise-polyfill": {
+            "PACKAGE_NAME": "com.flexibleFitness"
+        },
+        "cordova-admob-sdk": {
+            "PACKAGE_NAME": "com.flexibleFitness"
+        },
+        "es6-promise-plugin": {
+            "PACKAGE_NAME": "com.flexibleFitness"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.flexibleFitness"
+        }
+    }
+}

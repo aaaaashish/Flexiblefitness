@@ -1,0 +1,43 @@
+<ion-content class="card-background-page upld-pic">
+    <div class="upld-pic-wrapper">
+        <ion-grid class="grid-back">
+            <ion-row>
+                <ion-col col-2>
+                    <div class="red-outline-btn">
+                        <button ion-button ios-arrow-back color="danger" (click)="goBackFunc()" outline round block> <ion-icon name="arrow-back"></ion-icon></button>
+                    </div>
+                </ion-col>
+                <ion-col col-10>
+                    <div class="red-outline-btn">
+                        <button ion-button color="danger" (click)="uploadPhoto()" outline round block><ion-icon name="camera" ></ion-icon>&nbsp; <span>UPLOAD PICTURES</span></button>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-card class="gallery-card" *ngIf="currImg!=''">
+            <div class="root-img">
+                <img [src]="currImg"/>
+            </div>
+            <ion-item text-center>
+                <button  color="danger" ion-button outline round icon-left  item-start (click)="fbShare()">
+                    <ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon>
+                    FACEBOOK
+                </button>        
+                <button color="danger" ion-button icon-left outline round item-end (click)="instaShare()">
+                    <ion-icon ios="logo-instagram" md="logo-instagram"></ion-icon>
+                    INSTAGRAM
+                </button>
+            </ion-item>
+        </ion-card>
+        <ion-grid class="image-gallery">
+            <ion-row>
+                <ion-col col-6 *ngFor="let data of listOfImgArr" (click)="setImg(data)">
+                    <ion-card class="block">
+                        <img [src]="data.img" />
+                        <ion-icon name="close" class="deleteIcon"></ion-icon>
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>

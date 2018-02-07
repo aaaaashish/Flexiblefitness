@@ -1,0 +1,21 @@
+<ion-content class="bg card-background-page">
+    <ion-list class="custom-tooltip">
+        <ion-item>
+            <div class="work-hint">Weekly Goal: <span>{{xValue}}</span> resistance workouts + <span>{{yValue}}</span> cardio or self-defense workouts.</div>
+            <div class="work-hint hint2">You have <span>{{zValue}}</span> workouts left this week. If you log extra workouts, you will get to eat more!</div>
+        </ion-item>
+    </ion-list>
+    <ion-list class="workout-inner">    
+        <ion-card class="gym-img-row" *ngFor="let data of workoutListArr" (click)="goToDetail(data.name)">
+            <img [src]="data.image">
+            <div class="img-text">
+                <div class="workout-name" *ngIf="data.name=='GYM'">RESISTANCE WORKOUT - GYM</div>
+                <div class="workout-name" *ngIf="data.name=='OTG'">RESISTANCE WORKOUT - ON THE GO</div>
+                <div class="workout-name" *ngIf="data.name=='CARDIO'">CARDIO WORKOUT</div>
+                <div class="workout-name" *ngIf="data.name=='SELF'">SELF-DEFENSE WORKOUT</div>
+                <div class="workout-name" *ngIf="data.name=='ACTIVITY'">TRACK ANOTHER ACTIVITY</div>
+            </div>
+        </ion-card>
+    </ion-list>    
+</ion-content>
+    

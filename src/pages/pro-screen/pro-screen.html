@@ -1,0 +1,37 @@
+<ion-header class="custom-header-inner">
+  <ion-navbar hideBackButton>
+      <ion-buttons left>
+          <button ion-button ios-arrow-back class="arrow-icon" (click)="backBtnFunc()">
+              <ion-icon name="arrow-back"></ion-icon>
+          </button>
+      </ion-buttons>
+      <ion-buttons right>
+          <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+              <ion-icon name="arrow-back"></ion-icon>
+          </button>
+      </ion-buttons>
+      <ion-title>FLEXIBLE FITNESS</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div class="measurement-screen">
+        <div class="measurement-head">Pro – customized workout and meal plan with grocery lists adapted to your goals</div>
+        <div class="global-radio">
+            <div class="radio-inner">
+                <input type="radio" id="monthly" name="radio-group" value="Monthly" [(ngModel)]="pro">
+                <label for="monthly">Monthly – $10 per month</label>
+            </div>
+            <div class="radio-inner">
+                <input type="radio" id="quarterly" name="radio-group" value="Quarterly" [(ngModel)]="pro">
+                <label for="quarterly">Quarterly – $8.33 per month for three months ($24.99 upfront payment)</label>
+            </div>
+            <div class="radio-inner">
+                <input type="radio" id="annually" name="radio-group" value="Annually" [(ngModel)]="pro">
+                <label for="annually">Annually – $5 per month for twelve months ($59.99 upfront payment)</label>
+            </div>
+        </div>
+        <div class="black-btn">
+            <button ion-button block (click)="nextFunc()">NEXT</button>
+        </div>
+  </div>
+</ion-content>

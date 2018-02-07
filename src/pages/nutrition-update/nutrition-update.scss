@@ -1,0 +1,22 @@
+page-nutrition-update {
+    .goal-settings{
+        padding: 20px 0;
+        .form-block{
+            .list{
+                min-height: calc(100vh - 165px);
+                .global-radio{
+                    ion-label.label{
+                        margin: 30px 0 15px;
+                    }
+                }
+                .custom-select{
+                    ion-select.select{
+                        width: 100%;
+                        padding-left: 0;
+                        color: #4d4d4d;
+                    }
+                }
+            }
+        }        
+    }
+}

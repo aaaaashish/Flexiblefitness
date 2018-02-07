@@ -1,0 +1,73 @@
+<ion-header class="custom-header-inner">
+    <ion-navbar hideBackButton>
+        <ion-buttons left>
+            <button ion-button ios-arrow-back class="arrow-icon" (click)="backBtnFunc()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons right>
+            <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>FLEXIBLE FITNESS</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="choose-your-plan">
+        <div class="measurement-head">Choose your plan</div>
+        <div class="plan-options">
+            <ion-card>
+                <ion-card-header>Basic Plan</ion-card-header>  
+                <div class="card-box">
+                    <div class="plan-txt">Limited access to workouts and recipes.</div>
+                    <button ion-button color="danger" outline round block (click)="continue(1)">SELECT PLAN</button>
+                </div>            
+            </ion-card>
+            <ion-card>
+                <ion-card-header>Pro Plan</ion-card-header>  
+                <div class="card-box">
+                    <div class="plan-txt">Customized workout and meal plan with grocery lists adapted to your goals.</div>
+                    <div class="global-radio">
+                        <div class="radio-inner">
+                            <input type="radio" id="proRadio1" name="proRadio" value="2" [(ngModel)]="proPlanVal">
+                            <label class="pd-top" for="proRadio1">Monthly – $10 per month</label>
+                        </div>
+                        <div class="radio-inner">
+                            <input type="radio" id="proRadio2" name="proRadio" value="5" [(ngModel)]="proPlanVal">
+                            <label for="proRadio2">Quarterly – $8.33 per month for three months ($24.99 upfront payment)</label>
+                        </div>
+                        <div class="radio-inner">
+                            <input type="radio" id="proRadio3" name="proRadio" value="8" [(ngModel)]="proPlanVal">
+                            <label for="proRadio3">Annually – $5 per month for twelve months ($59.99 upfront payment)</label>
+                        </div>
+                    </div>
+                    <button ion-button color="danger" outline round block (click)="continue(2)">SELECT PLAN</button>
+                </div>            
+            </ion-card>
+            <ion-card>
+                <ion-card-header>Personalized Plan</ion-card-header>  
+                <div class="card-box">
+                    <div class="plan-txt">All features of pro plus tailored guidance from one of our personal trainers.</div>
+                    <div class="global-radio">
+                        <div class="radio-inner">
+                            <input type="radio" id="persRadio1" name="persRadio" value="3" [(ngModel)]="persPlanVal">
+                            <label class="pd-top" for="persRadio1">Monthly – $15 per month</label>
+                        </div>
+                        <div class="radio-inner">
+                            <input type="radio" id="persRadio2" name="persRadio" value="6" [(ngModel)]="persPlanVal">
+                            <label for="persRadio2">Quarterly – $10 per month for three months ($29.99 upfront payment)
+                            </label>
+                        </div>
+                        <div class="radio-inner">
+                            <input type="radio" id="persRadio3" name="persRadio" value="9" [(ngModel)]="persPlanVal">
+                            <label for="persRadio3">Annually - $6.67 per month for twelve months ($79.99 upfront payment)</label>
+                        </div>
+                    </div>
+                    <button ion-button color="danger" outline round block (click)="continue(3)">SELECT PLAN</button>
+                </div>            
+            </ion-card>
+        </div>
+    </div>
+</ion-content>
+

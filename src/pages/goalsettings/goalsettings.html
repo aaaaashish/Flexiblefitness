@@ -1,0 +1,158 @@
+<ion-header class="custom-header-inner">
+    <ion-navbar hideBackButton>
+        <ion-buttons left>
+            <button ion-button ios-arrow-back class="arrow-icon" (click)="backBtnFunc()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons right>
+            <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>GOAL SETTINGS</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="goal-settings custom-goal-settings">
+        <div class="question-field form-block">
+            <ion-card>
+                <ion-card-header>Bodyfat Percentage</ion-card-header>
+                <div class="global-radio">
+                    <div class="ques-block">
+                        Would you like to update your bodyfat percentage?
+                    </div>
+                    <ion-grid class="yes-no-btn">
+                        <ion-row>
+                            <ion-col>
+                                <button ion-button color="danger" outline round block (click)="bodyFatClick(1)">UPDATE</button>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                    <div class="question-field" *ngIf="bodyFatDiv">
+                        <ion-list style="min-height:0">
+                            <ion-item class="goal-set-body">
+                                <ion-input type="text" [(ngModel)]="user.bodyfatValue" (keyup)="checkValueFunc()" (ionBlur)="checkValueFunc()" [attr.maxlength]="5"></ion-input>
+                            </ion-item>
+                            <label *ngIf="bodyFatErr">
+                                <p class="error-bodyFat">Enter valid bodyfat percentage.</p>
+                            </label>
+                        </ion-list>
+                    </div>
+                </div>
+            </ion-card>
+            <ion-card>
+                <ion-card-header>Activity Level</ion-card-header>            
+                <div class="global-radio">
+                    <div class="ques-block">
+                        Would you like to update your activity level?
+                    </div>
+                    <ion-grid class="yes-no-btn">
+                        <ion-row>
+                            <ion-col>
+                                <button ion-button color="danger" outline round block (click)="actLevelClickFunc(1)">UPDATE</button>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                    <div class="custom-select" *ngIf="activityLevelDiv">
+                        <ion-list>
+                            <ion-item class="select-field">
+                                <ion-label class="hide_lbl">Activity level</ion-label>
+                                <ion-select [(ngModel)]="user.actLevel" class="cmpleSelect">
+                                    <ion-option value="1">Sedentary</ion-option>
+                                    <ion-option value="2">Lightly active</ion-option>
+                                    <ion-option value="3">Moderately active</ion-option>
+                                    <ion-option value="4">Very active</ion-option>
+                                    <ion-option value="5">Extremely active</ion-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-list>
+                    </div>
+                </div>
+            </ion-card>        
+            <ion-card>
+                <ion-card-header>Weight Goal</ion-card-header>            
+                <div class="global-radio">
+                    <div class="ques-block">
+                        Would you like to update your weight goal?
+                    </div>
+                    <ion-grid class="yes-no-btn">
+                        <ion-row>
+                            <ion-col>
+                                <button ion-button color="danger" outline round block (click)="weightGoalClickFunc(1)">UPDATE</button>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                    <div class="custom-select" *ngIf="weightGoalDiv">
+                        <ion-list>
+                            <ion-item class="select-field" >
+                                <ion-label class="hide_lbl">Weight goal</ion-label>
+                                <ion-select [(ngModel)]="user.weightGoalVal" class="cmpleSelect">
+                                    <ion-option value="1">Lose fat</ion-option>
+                                    <ion-option value="2">Build muscle</ion-option>
+                                    <ion-option value="3">Maintain weight</ion-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-list>
+                    </div>           
+                </div>
+            </ion-card>
+            <ion-card>
+                <ion-card-header>Pace of progress</ion-card-header>
+                <div class="global-radio">
+                    <div class="ques-block">
+                        Would you like to update your pace of progress?
+                    </div>
+                    <ion-grid class="yes-no-btn">
+                        <ion-row>
+                            <ion-col>
+                                <button ion-button color="danger" outline round block (click)="paceProClickFunc(1)">UPDATE</button>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                    <div class="custom-select" *ngIf="paceOfProgressDiv">
+                        <ion-list>
+                            <ion-item class="select-field" >
+                                <ion-label class="hide_lbl">Pace of progress</ion-label>
+                                <ion-select [(ngModel)]="user.paceOfProgressVal" class="cmpleSelect">
+                                    <ion-option value="1">Slowly (easy)</ion-option>
+                                    <ion-option value="2">Moderately</ion-option>
+                                    <ion-option value="3">Quickly (intense)</ion-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-list>
+                    </div>
+                </div>
+            </ion-card>            
+            <ion-card>
+                <ion-card-header>Workout Reminders</ion-card-header>
+                <div class="global-radio">
+                    <div class="ques-block">
+                        Would you like to modify your workout reminder?
+                    </div>
+                    <ion-grid class="yes-no-btn">
+                        <ion-row>
+                            <ion-col>
+                                <button ion-button color="danger" outline round block (click)="workOutRemClickFunc(1)">UPDATE</button>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                    <div class="question-field" *ngIf="workoutRemDiv">
+                        <ion-list style="min-height:0">
+                            <ion-item>
+                                <ion-label style="color: #000 !important; font-size: inherit;">Time</ion-label>
+                                <ion-datetime displayFormat="hh:mm A" [(ngModel)]="user.hrValue"></ion-datetime>
+                            </ion-item>
+                            <label *ngIf="hrsErr">
+                                <p class="error" style="margin-top:5px;">Enter valid hours.</p>
+                            </label>
+                        </ion-list>
+                    </div>
+                </div>             
+            </ion-card>
+            <div class="black-btn">
+                <button ion-button block (click)="updateFunc()">UPDATE</button>
+            </div>
+        </div>
+    </div>
+</ion-content>

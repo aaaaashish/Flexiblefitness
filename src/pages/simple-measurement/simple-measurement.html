@@ -1,0 +1,33 @@
+<ion-header class="custom-header-inner">
+    <ion-navbar hideBackButton>
+        <ion-buttons left>
+            <button ion-button ios-arrow-back class="arrow-icon" (click)="backBtnFunc()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons right>
+            <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>FLEXIBLE FITNESS</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="measurement-screen">
+        <div class="measurement-head">Would you like to take some simple measurements using measuring tape to help estimate your bodyfat percentage? This will increase the accuracy of your weight tracking efforts.</div>
+        <div class="global-radio">
+            <div class="radio-inner">
+                <input type="radio" id="yesSta" name="radio-sta" value="1" [(ngModel)]="simpleMeaStatus">
+                <label class="pd-top" for="yesSta">Yes</label>
+            </div>
+            <div class="radio-inner">
+                <input type="radio" id="noSta" name="radio-sta" value="0" [(ngModel)]="simpleMeaStatus">
+                <label class="pd-top" for="noSta">No</label>
+            </div>
+        </div>
+        <div class="black-btn">
+            <button ion-button block (click)="nextFunc()">NEXT</button>
+        </div>
+    </div>
+</ion-content>

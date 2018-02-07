@@ -1,0 +1,51 @@
+<ion-header class="custom-header-inner">
+    <ion-navbar hideBackButton>
+        <ion-buttons left>
+            <button ion-button ios-arrow-back class="arrow-icon" (click)="backBtnFunc()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons right>
+            <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>Weekly Grocery List</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-list class="days-list">
+        <ion-item>
+            <ion-label>Days</ion-label>
+            <ion-select [(ngModel)]="daysVal">
+                <ion-option [value]="data.value" *ngFor="let data of daysArr">{{data.value}}</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+    <ion-card> 
+        <div class="listGrocery" *ngFor="let data of groceryListArr">               
+            <ion-item>
+                <ion-avatar item-start>
+                    <img src="{{data.image}}">
+                </ion-avatar>
+                <h2>{{data.ingredientName}}</h2>
+                <p>Qty : {{data.ingredientQty}}&nbsp;{{data.unit}}</p>
+            </ion-item>
+            <div class="global-checkbox">
+                <ion-checkbox [(ngModel)]="data.selected" color="danger"></ion-checkbox>
+            </div>
+        </div>
+    </ion-card>
+    <ion-card *ngIf="noListFound">
+        <ion-card-content class="no-rec-found">
+            No record found for weekly grocery.
+        </ion-card-content>
+    </ion-card>
+    <!-- <ion-grid class="yes-no-btn food-history-btn">
+        <ion-row>
+            <ion-col>
+                <button ion-button color="danger" outline round block (click)="submitFunc()">SUBMIT</button>
+            </ion-col>
+        </ion-row>
+    </ion-grid> -->
+</ion-content>

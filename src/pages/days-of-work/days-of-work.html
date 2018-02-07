@@ -1,0 +1,30 @@
+<ion-header class="custom-header-inner">
+    <ion-navbar hideBackButton>
+        <ion-buttons left>
+            <button ion-button ios-arrow-back class="arrow-icon" (click)="backBtnFunc()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons right>
+            <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>FLEXIBLE FITNESS</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="measurement-screen">
+        <div class="measurement-head">How many days per week do you work?</div>
+        <div class="global-radio">
+            <ion-range [min]="min" [max]="max" [step]="step" pin="true" [(ngModel)]="user.totalDays" color="secondary">
+                <ion-label range-left>{{min}}</ion-label>
+                <ion-label range-right>{{max}}</ion-label>
+            </ion-range>
+        </div>
+        <div class="black-btn">
+            <button ion-button block (click)="nextFunc()">NEXT</button>
+        </div>
+    </div>
+</ion-content>
+

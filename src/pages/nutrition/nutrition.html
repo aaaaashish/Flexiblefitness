@@ -1,0 +1,81 @@
+<ion-content>
+    <ion-card class="table-card" *ngIf="calListArr.length!=0">
+        <div class="custom-table foodHis-tbl">
+            <div class="nuti-grid-main">
+                <div class="nuti-list-hdr" left>
+                    <button class="table-btn" ion-button color="light" clear (click)="nutriChangeFunc(1)"> 
+                        <img src="assets/imgs/backArrow.png">
+                    </button>
+                </div>
+                <div class="nuti-list-hdr" style="margin: 2px 0 0;">{{nutriDate | date: 'mediumDate'}}</div>
+                <div class="nuti-list-hdr" right>
+                    <button class="table-btn" ion-button color="light" clear (click)="nutriChangeFunc(2)">
+                        <img src="assets/imgs/frwdArrow.png">
+                    </button>
+                </div>
+            </div>
+            <div class="nuti-grid-main">
+                <div class="nuti-list-hdr">Total Calories</div>
+                <div class="nuti-list-hdr">Calories Consumed</div>
+                <div class="nuti-list-hdr">Calories Remaining</div>
+            </div>
+            <table class="table frst-tbl">
+                <tbody>
+                    <tr>
+                        <td>{{nutriTotalCal}}</td>
+                        <td>{{nutriCalConsumed}}</td>
+                        <td>{{nutriCalRem}}</td>
+                    </tr>                    
+                </tbody>
+            </table>
+        </div>
+    </ion-card> 
+    <ion-list class="workout-inner" style="padding: 0 10px;">    
+        <ion-card class="gym-img-row" (click)="todaymeal()" style="border-bottom: 1px solid #eee;">
+            <img src="assets/imgs/todaysMeal.png">
+            <div class="img-text">
+                <div class="workout-name">Today's Meals</div>
+            </div>
+        </ion-card>          
+        <ion-card class="gym-img-row"(click)="logFood()">
+            <img src="assets/imgs/logOwnFood.png">
+            <div class="img-text">
+                <div class="workout-name">Log your own food</div>
+             </div>
+        </ion-card>    
+    </ion-list>
+    <ion-card class="table-card" *ngIf="logFoodTblArr.length!=0">
+        <div class="custom-table foodHis-tbl">
+            <div class="nuti-grid-main" style="padding: 5px 0; border-bottom: 1px solid #fd8484;">
+                <div class="nuti-list-hdr" style="margin: 2px 0 0; width: 100%; text-align: center;">Food Log</div>
+            </div>
+            <div class="nuti-grid-main" style="border-bottom: 1px solid #fd8484; padding:0;">
+                <div class="nuti-list-hdr" left>
+                    <button class="table-btn" ion-button color="light" clear (click)="foodLogDateChangeFunc(1)"> 
+                            <img src="assets/imgs/backArrow.png">
+                    </button>
+                </div>
+                <div class="nuti-list-hdr" style="margin: 2px 0 0;">{{logFoodTblArr[logInd].date | date: 'mediumDate'}}</div>
+                <div class="nuti-list-hdr" right>
+                    <button class="table-btn" ion-button color="light" clear (click)="foodLogDateChangeFunc(2)">
+                        <img src="assets/imgs/frwdArrow.png">
+                    </button>
+                </div>
+            </div>
+            <div class="nuti-grid-main">
+                <div class="nuti-list-hdr">Food</div>
+                <div class="nuti-list-hdr">Calories</div>
+            </div>
+            <div class="complete-table" style="height: 100px;">
+                <table class="table">
+                    <tbody>
+                        <tr *ngFor="let data of logFoodTblArr[logInd].logArr">
+                            <td>{{data.food}}</td>
+                            <td>{{data.calorie}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </ion-card>
+</ion-content>

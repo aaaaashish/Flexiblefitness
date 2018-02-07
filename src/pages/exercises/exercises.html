@@ -1,0 +1,91 @@
+<ion-header class="custom-header-inner">
+    <ion-navbar hideBackButton>
+        <ion-buttons left>
+            <button ion-button ios-arrow-back class="arrow-icon" (click)="backBtnFunc()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons right>
+            <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>Log Activity</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="bg">
+    <ion-searchbar no-line class="content-search" placeholder="Search" [(ngModel)]="searchText" (ionInput)="searchFunc($event)"></ion-searchbar> 
+    <ion-list no-lines class="exercise-list" [ngClass]="{'list_withoutTbl':activityLogArr.length==0,'list_withTbl':activityLogArr.length!=0}">    
+        <ion-item (click)="addDuration(data)" *ngFor="let data of activityArr">
+            {{data.actName}}
+        </ion-item>   
+    </ion-list>
+    <!-- <ion-card class="table-card" *ngIf="activityListArr.length!=0">
+        <div class="custom-table foodHis-tbl">
+            <div class="nuti-grid-main" style="padding: 5px 0; border-bottom: 1px solid #fd8484;">
+                <div class="nuti-list-hdr" style="margin: 2px 0 0; width: 100%; text-align: center;">Activity Log</div>
+            </div>
+            <div class="nuti-grid-main main-hdr">
+                <div class="nuti-list-hdr" left>
+                    <button class="table-btn" ion-button color="light" clear (click)="actChangeFunc(1)"> 
+                            <img src="assets/imgs/backArrow.png">
+                    </button>
+                </div>
+                <div class="nuti-list-hdr" style="margin: 2px 0 0;">{{actDate | date: 'mediumDate'}}</div>
+                <div class="nuti-list-hdr" right>
+                    <button class="table-btn" ion-button color="light" clear (click)="actChangeFunc(2)">
+                        <img src="assets/imgs/frwdArrow.png">
+                    </button>
+                </div>
+            </div>
+            <div class="nuti-grid-main">
+                <div class="nuti-list-hdr">Activity</div>
+                <div class="nuti-list-hdr">Time Performed</div>
+            </div>
+            <table class="table frst-tbl">
+                <tbody>
+                    <tr>
+                        <td>{{actName}}</td>
+                        <td>{{actDuration}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </ion-card> -->
+
+    <ion-card class="table-card" *ngIf="activityLogArr.length!=0">
+        <div class="custom-table foodHis-tbl">
+            <div class="nuti-grid-main" style="padding: 5px 0; border-bottom: 1px solid #fd8484;">
+                <div class="nuti-list-hdr" style="margin: 2px 0 0; width: 100%; text-align: center;">Activity Log</div>
+            </div>
+            <div class="nuti-grid-main main-hdr">
+                <div class="nuti-list-hdr" left>
+                    <button class="table-btn" ion-button color="light" clear (click)="actChangeFunc(1)"> 
+                            <img src="assets/imgs/backArrow.png">
+                    </button>
+                </div>
+                <div class="nuti-list-hdr" style="margin: 2px 0 0;">{{activityLogArr[actInd].date | date: 'mediumDate'}}</div>
+                <div class="nuti-list-hdr" right>
+                    <button class="table-btn" ion-button color="light" clear (click)="actChangeFunc(2)">
+                        <img src="assets/imgs/frwdArrow.png">
+                    </button>
+                </div>
+            </div>
+            <div class="nuti-grid-main">
+                <div class="nuti-list-hdr">Activity</div>
+                <div class="nuti-list-hdr">Time Performed</div>
+            </div>
+            <div class="actLog-tbl">
+                <table class="table frst-tbl">
+                    <tbody>
+                        <tr *ngFor="let data of activityLogArr[actInd].logArr">
+                            <td>{{data.activity}}</td>
+                            <td>{{data.duration}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </ion-card>
+</ion-content>
+    

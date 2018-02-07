@@ -1,0 +1,36 @@
+<ion-header class="custom-header-inner">
+    <ion-navbar hideBackButton>
+        <ion-buttons left>
+            <button ion-button ios-arrow-back class="arrow-icon" (click)="backBtnFunc()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons right>
+            <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>FLEXIBLE FITNESS</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="measurement-screen">
+        <div class="measurement-head">What is your fitness goal?</div>
+        <div class="custom-select">
+            <ion-list>
+                <ion-item class="select-field" >
+                    <ion-label class="hide_lbl">Select</ion-label>
+                    <ion-select [(ngModel)]="fitGoal" class="cmpleSelect">
+                        <ion-option value="select" [disabled]="true">Select</ion-option>
+                        <ion-option value="Gain muscle">Gain muscle</ion-option>
+                        <ion-option value="Lose fat">Lose fat</ion-option>
+                        <ion-option value="Improve athleticism">Improve athleticism</ion-option>
+                    </ion-select>
+                </ion-item>
+            </ion-list>
+        </div>
+        <div class="black-btn">
+            <button ion-button block (click)="onSubmit()" [disabled]="fitGoal=='select'">SUBMIT</button>
+        </div>
+    </div>
+</ion-content>

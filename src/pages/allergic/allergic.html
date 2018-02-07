@@ -1,0 +1,19 @@
+<ion-content>
+  <div class="measurement-screen" style="margin: 10% auto;">
+        <div class="measurement-head">Are you allergic to any of these ingredients?</div>
+        <div class="global-checkbox">
+            <div class="radio-inner" *ngFor="let data of allergicArr">
+                <ion-item>
+                    <ion-label>{{data.name}}</ion-label>
+                    <ion-checkbox color="danger" [(ngModel)]="data.selected"></ion-checkbox>
+                </ion-item>
+            </div>
+        </div>
+        <div class="black-btn">
+            <button ion-button block (click)="nextFunc(1)">NEXT</button>
+        </div>
+        <div class="skip-div">
+            <a (click)="nextFunc(0)">Skip</a>
+        </div>
+  </div>
+</ion-content>

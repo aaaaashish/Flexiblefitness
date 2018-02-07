@@ -1,0 +1,43 @@
+<ion-header class="custom-header-inner">
+    <ion-navbar hideBackButton>
+        <ion-buttons left>
+            <button ion-button ios-arrow-back class="arrow-icon" (click)="backBtnFunc()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons right>
+            <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>FLEXIBLE FITNESS</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="gender-screen" style="margin: 15% auto 0;">
+        <div class="heading">GENDER</div>
+        <div class="select-gender">
+            <ion-grid>
+                <ion-row>
+                    <ion-col col-6 (click)="selectFunc('MALE')">
+                        <div class="gender-div" [ngClass]="{'active':mActClass}">
+                            <div class="gender_img male"></div>
+                            <p>Male</p>
+                        </div>
+                    </ion-col>
+                    <ion-col col-6 (click)="selectFunc('FEMALE')">
+                        <div class="gender-div" [ngClass]="{'active':fActClass}">
+                            <div class="gender_img female"></div>
+                            <p>Female</p>
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>            
+        </div>
+        <div class="black-btn" style="margin-top: 70px;">
+            <button ion-button block (click)="nextFunc()">NEXT</button>
+        </div>
+    </div>
+</ion-content>
+  
+  

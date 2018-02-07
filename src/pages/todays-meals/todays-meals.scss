@@ -1,0 +1,19 @@
+page-todays-meals {
+    #btn1{
+        float: left;
+    }
+    .my-account{
+        .account-form{
+            min-height: calc(100vh - 240px);
+        }
+        .red-outline-btn{
+            margin: 15px 0;
+            background-color: transparent !important;
+        }
+    }
+    .button-outline-ios-danger {
+        border-color: #f53d3d;
+        color: #f53d3d;
+        background-color: transparent !important;
+    }
+}

@@ -1,0 +1,45 @@
+<ion-content>
+    <ion-list class="custom-tooltip" *ngIf="tooltipDiv">
+        <ion-item>
+            <p>{{tipContent}}</p>
+            <button ion-button clear item-end (click)="hidetooltip()">Got it!</button>
+        </ion-item>
+    </ion-list>
+    <div class="nutrition updt-weight" *ngIf="weightQueDiv">
+        <div class="question-field form-block">
+            <div class="updte-weight">
+                <ion-item>
+                    <ion-label stacked style="padding-bottom: 10px;">Enter your updated weight</ion-label>
+                    <ion-input type="text" placeholder="Weight" [(ngModel)]="user.weight" (keyup)="weightBlurFunc()" (ionBlur)="weightBlurFunc()" [attr.maxlength]="5"></ion-input>
+                </ion-item>
+                <label class="unit-lbl">{{unitOfWeight}}</label>
+            </div>
+            <label *ngIf="weightErr">
+                <p class="error">{{weightErrMsg}}</p>
+            </label>
+            <div class="black-btn">
+                <button ion-button [disabled]="user.weight=='' || weightErr==true" (click)="weightSaveFunc()" style="width:100%;">UPDATE</button>
+            </div>
+        </div>      
+    </div>
+    <div class="graph-home" *ngIf="weightGrapgh">
+        <h2 class="card-title grph-head-home">WEIGHT PROGRESS</h2>
+        <div class="graph" style="width: 100%;">
+            <canvas id="weightChart"></canvas>
+        </div>        
+    </div>
+    <div class="graph-home" *ngIf="bodyFatGrapgh">
+        <h2 class="card-title grph-head-home">BODYFAT PERCENTAGE</h2>
+        <div class="graph" style="width: 100%;">
+            <canvas id="bodyfatChart"></canvas>
+        </div>
+    </div>
+    <ion-slides class="image-slider home-custom-slider"  pager="true" loop="false" effect="coverflow" style="margin-top:5px;" *ngIf="sliderImgArr.length!=0">
+        <ion-slide *ngFor="let data of sliderImgArr">
+            <img [src]="data.img" class="thumb-img">
+        </ion-slide>
+    </ion-slides>
+    <div class="red-outline-btn" style="padding: 15px">
+        <button ion-button color="danger" (click)="uploadPicture()" outline round block>UPLOAD PICTURE</button>
+    </div>
+</ion-content>

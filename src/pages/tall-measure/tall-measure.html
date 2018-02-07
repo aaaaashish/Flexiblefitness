@@ -1,0 +1,52 @@
+<ion-header class="custom-header-inner">
+    <ion-navbar hideBackButton>
+        <ion-buttons left>
+            <button ion-button ios-arrow-back class="arrow-icon" (click)="backBtnFunc()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons right>
+            <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>FLEXIBLE FITNESS</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="measurement-screen">
+        <div class="measurement-head">How tall are you?</div>
+        <div class="question-field">
+            <ion-grid *ngIf="impDiv">
+                <ion-row>
+                    <ion-col col-6>
+                        <div class="fitness_field">
+                            <ion-input type="text" placeholder="ft" [(ngModel)]="user.ftValue" [attr.maxlength]="1"></ion-input>   
+                            <span class="unit_span">ft</span> 
+                        </div>
+                    </ion-col>
+                    <ion-col col-6>
+                        <div class="fitness_field">
+                            <ion-input type="text" placeholder="in" [(ngModel)]="user.inchValue" [attr.maxlength]="2"></ion-input>   
+                            <span class="unit_span">in</span> 
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <ion-grid *ngIf="metricDiv">
+                <ion-row>
+                    <ion-col col-6 style="margin-left: 33%;">
+                        <div class="fitness_field">
+                            <ion-input type="text" placeholder="cm" [(ngModel)]="user.cmValue" [attr.maxlength]="3"></ion-input>   
+                            <span class="unit_span">cm</span> 
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+        <div class="black-btn">
+            <button ion-button block (click)="nextFunc()">NEXT</button>
+        </div>
+    </div>
+</ion-content>
+

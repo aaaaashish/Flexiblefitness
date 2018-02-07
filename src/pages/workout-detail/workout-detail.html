@@ -1,0 +1,46 @@
+<ion-content class="bg">
+    <ion-list class="workout-inner workout-video">    
+        <ion-card class="gym-img-row">
+            <!-- <img src="assets/imgs/gym1.png"> -->
+            <img src="{{workoutImg}}">
+            <div class="img-text" >
+                <div class="workout-name">{{workoutName}}</div>
+            </div>
+        </ion-card>    
+        <ion-card class="block-card">
+            <div class="description">
+                <h2 class="card-title">DESCRIPTION
+                    <button ion-button class="download-btn" color="light" clear style="float: right; margin-top: -14px;" (click)="downloadVideo()" *ngIf="currUserType=='Paid'">
+                        <img src="assets/imgs/download.png">
+                    </button>
+                </h2>
+                <p>{{workoutDesc}}</p>
+            </div>
+            <div class="rules">
+                <h2 class="card-title">RULES</h2>
+                <p>{{workoutRule}}</p>
+            </div>
+        </ion-card>
+    </ion-list>
+</ion-content>
+<ion-footer>
+    <ion-toolbar class="ftr-workDet">
+        <ion-grid style="padding: 0;" *ngIf="currUserType=='Paid'">
+            <ion-row>
+                <ion-col col-6>
+                    <button ion-button color="danger" (click)="goBackFunc()" outline round block>BACK</button>
+                </ion-col>
+                <ion-col col-6>
+                    <button ion-button color="danger" (click)="startWorkoutFunc()" outline round block>START WORKOUT</button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-grid style="padding: 0;" *ngIf="currUserType=='Free'">
+            <ion-row>
+                <ion-col>
+                    <button ion-button color="danger" (click)="goBackFunc()" outline round block>BACK</button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,46 @@
+<ion-content class="bg-image">
+    <div class="login">
+        <div class="login-heading">
+            <p>Welcome to</p>
+            <h2>FLEXIBLE FITNESS</h2>
+        </div>
+        <form [formGroup]="loginForm">
+            <div class="login-field">
+                <ion-list>
+                    <ion-item [ngClass]="{'error-border': ( loginForm.get('email').hasError('pattern') || loginForm.get('email').hasError('required') ) && loginForm.get('email').touched }">
+                        <ion-input type="email" formControlName="email" [(ngModel)]="login.email" class="email-field" placeholder="Email" [attr.maxlength]="50"></ion-input>
+                    </ion-item>
+                    <label *ngIf="( loginForm.get('email').hasError('pattern') || loginForm.get('email').hasError('required') ) && loginForm.get('email').touched">                      
+                        <p class="error" *ngIf="loginForm.get('email').hasError('required') && loginForm.get('email').touched">Enter an email address.</p>
+                        <p class="error" *ngIf="loginForm.get('email').hasError('pattern') && loginForm.get('email').touched">Enter a valid email address.</p>
+                    </label>
+                    <ion-item [ngClass]="{'error-border': (loginForm.get('password').hasError('pattern') || loginForm.get('password').hasError('required')) && loginForm.get('password').touched }">
+                        <ion-input type="password" formControlName="password" [(ngModel)]="login.password" class="password-field" placeholder="Password" [attr.maxlength]="16"></ion-input>
+                    </ion-item>
+                    <label *ngIf="(loginForm.get('password').hasError('pattern') || loginForm.get('password').hasError('required')) && loginForm.get('password').touched">
+                        <p class="error" *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched">Enter a password.</p>
+                        <p class="error" *ngIf="loginForm.get('password').hasError('pattern') && loginForm.get('password').touched">Password must be between 8 and 16 characters and must contain at least one letter, number, and special character.</p>
+                    </label>
+                </ion-list>
+            </div>
+        </form>
+        <div class="custom-checkbox">
+            <div class="left-s">
+                <ion-item>
+                    <ion-label>Remember Me</ion-label>
+                    <ion-checkbox color="dark" [(ngModel)]="remChecked"></ion-checkbox>
+                </ion-item>
+            </div>
+            <div class="right-s" navPush="ForgotPasswordPage">
+                <a style="font-size: 13px;">Forgot Password?</a>
+            </div>
+        </div>
+        <div class="block-btn creat-btn" style="margin: 0;">
+            <button ion-button block class="login-btn" [disabled]="loginForm.invalid" (click)="loginFunc()">LOGIN</button>
+            <button ion-button block class="facebook-btn" (click)="fbLoginFunc()">LOGIN WITH FACEBOOK</button>
+        </div>
+    </div>
+    <div class="footer-text btm_div">
+        <p>Don't have an account? <span><a (click) ="signup()">SIGN UP</a></span></p>
+    </div>
+</ion-content>

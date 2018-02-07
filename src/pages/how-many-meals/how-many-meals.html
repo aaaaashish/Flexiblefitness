@@ -1,0 +1,22 @@
+<ion-content>
+    <div class="measurement-screen">
+        <div class="measurement-head">How many meals do you want to have every day (fewer big meals or more frequent small meals)?</div>
+        <div class="custom-select">
+            <ion-list>
+                <ion-item class="select-field" >
+                    <ion-label class="hide_lbl">Types of meals</ion-label>
+                    <ion-select [(ngModel)]="howmanyMeals" class="cmpleSelect">
+                        <ion-option value="1">One – Warrior Diet</ion-option>
+                        <ion-option value="2">Two – Intermittent Fasting</ion-option>
+                        <ion-option value="3">Three – Standard</ion-option>
+                        <ion-option value="4">Four – three meals and a snack</ion-option>
+                        <ion-option value="5">Five – three meals and two snacks</ion-option>
+                    </ion-select>
+                </ion-item>
+            </ion-list>
+        </div>
+        <div class="black-btn">
+            <button ion-button block (click)="onSubmit()">NEXT</button>
+        </div>
+    </div>
+</ion-content>

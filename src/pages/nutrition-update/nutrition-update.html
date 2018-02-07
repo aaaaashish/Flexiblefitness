@@ -1,0 +1,163 @@
+<ion-header class="custom-header-inner">
+  <ion-navbar hideBackButton>
+      <ion-buttons left>
+          <button ion-button ios-arrow-back class="arrow-icon" (click)="backBtnFunc()">
+              <ion-icon name="arrow-back"></ion-icon>
+          </button>
+      </ion-buttons>
+      <ion-buttons right>
+          <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+              <ion-icon name="arrow-back"></ion-icon>
+          </button>
+      </ion-buttons>
+      <ion-title>NUTRITION SETTINGS</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="goal-settings custom-goal-settings">
+        <div class="question-field form-block">
+            <ion-card>
+                <ion-card-header>Diet</ion-card-header>
+                <div class="global-radio">
+                    <div class="ques-block">
+                        Would you like to update your diet?
+                    </div>
+                    <ion-grid class="yes-no-btn">
+                        <ion-row>
+                            <ion-col>
+                                <button ion-button color="danger" outline round block (click)="updateClickFunc('diet')">UPDATE</button>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                    <div class="custom-select" *ngIf="dietDiv">
+                        <ion-list>
+                            <ion-item class="select-field">
+                                <ion-label class="hide_lbl">Kind of diet</ion-label>
+                                <ion-select [(ngModel)]="user.diet" class="cmpleSelect">
+                                    <ion-option value="5">None, I eat anything</ion-option>
+                                    <ion-option value="1">Paleo</ion-option>
+                                    <ion-option value="2">Vegetarian</ion-option>
+                                    <ion-option value="3">Vegan</ion-option>
+                                    <ion-option value="4">Pescetarian</ion-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-list>
+                    </div>
+                </div>
+            </ion-card>
+            <ion-card>
+                <ion-card-header>Allergenics</ion-card-header>            
+                <div class="global-radio allergic-lst">
+                    <div class="ques-block">
+                        Would you like to update the ingredients you are allergic to?
+                    </div>
+                    <ion-grid class="yes-no-btn">
+                        <ion-row>
+                            <ion-col>
+                                <button ion-button color="danger" outline round block (click)="updateClickFunc('allergic')">UPDATE</button>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                    <div class="custom-select" *ngIf="allergicDiv">
+                        <div class="global-checkbox allergy_checkbox">
+                            <div class="radio-inner" *ngFor="let data of allergicArr">
+                                <ion-item>
+                                    <ion-label>{{data.name}}</ion-label>
+                                    <ion-checkbox color="danger" [(ngModel)]="data.selected"></ion-checkbox>
+                                </ion-item>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ion-card>        
+            <ion-card>
+                <ion-card-header>Meal Frequency</ion-card-header>            
+                <div class="global-radio">
+                    <div class="ques-block">
+                        Would you like to update your meal frequency?
+                    </div>
+                    <ion-grid class="yes-no-btn">
+                        <ion-row>
+                            <ion-col>
+                                <button ion-button color="danger" outline round block (click)="updateClickFunc('mealTypes')">UPDATE</button>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                    <div class="custom-select" *ngIf="typesOfMealDiv">
+                        <ion-list>
+                            <ion-item class="select-field" >
+                                <ion-label class="hide_lbl">Types of meals</ion-label>
+                                <ion-select [(ngModel)]="user.mealsType" class="cmpleSelect">
+                                    <ion-option value="1">One – Warrior Diet</ion-option>
+                                    <ion-option value="2">Two – Intermittent Fasting</ion-option>
+                                    <ion-option value="3">Three – Standard</ion-option>
+                                    <ion-option value="4">Four – three meals and a snack</ion-option>
+                                    <ion-option value="5">Five – three meals and two snacks</ion-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-list>
+                    </div>           
+                </div>
+            </ion-card>
+            <ion-card>
+                <ion-card-header>Meal Variety</ion-card-header>
+                <div class="global-radio">
+                    <div class="ques-block">
+                        Would you like to update how often your meals are switched up?
+                    </div>
+                    <ion-grid class="yes-no-btn">
+                        <ion-row>
+                            <ion-col>
+                                <button ion-button color="danger" outline round block (click)="updateClickFunc('meals')">UPDATE</button>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                    <div class="custom-select" *ngIf="switchMealDiv">
+                        <ion-list>
+                            <ion-item class="select-field" >
+                                <ion-label class="hide_lbl">Switch your meals</ion-label>
+                                <ion-select [(ngModel)]="user.switchMeal" class="cmpleSelect">
+                                    <ion-option value="1">Every day</ion-option>
+                                    <ion-option value="2">Twice a week</ion-option>
+                                    <ion-option value="3">Once a week</ion-option>
+                                    <ion-option value="4">Once a month</ion-option>
+                                    <ion-option value="5">Never</ion-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-list>
+                    </div>
+                </div>
+            </ion-card>
+            <ion-card *ngIf="mealsDeliverStatus">
+                    <ion-card-header>Meal Delivery</ion-card-header>
+                    <div class="global-radio">
+                        <div class="ques-block">
+                            Would you like to change your meal delivery subscription?
+                        </div>
+                        <ion-grid class="yes-no-btn">
+                            <ion-row>
+                                <ion-col>
+                                    <button ion-button color="danger" outline round block (click)="updateClickFunc('mealsDeliver')">UPDATE</button>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+                        <div class="custom-select" *ngIf="mealsDeliverDiv">
+                            <div class="global-radio">
+                                <div class="radio-inner">
+                                    <input type="radio" id="nutriUpRadio1" name="nutriUpRadio" value="YES" [(ngModel)]="user.mealsdeliverStatus">
+                                    <label class="pd-top" for="nutriUpRadio1">Yes</label>
+                                </div>
+                                <div class="radio-inner">
+                                    <input type="radio" id="nutriUpRadio2" name="nutriUpRadio" value="NO" [(ngModel)]="user.mealsdeliverStatus">
+                                    <label class="pd-top" for="nutriUpRadio2">No</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ion-card>
+            <div class="black-btn">
+                <button ion-button block (click)="updateFunc()">UPDATE</button>
+            </div>
+        </div>
+    </div>
+</ion-content>

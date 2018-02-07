@@ -1,0 +1,31 @@
+<ion-header class="custom-header-inner">
+    <ion-navbar hideBackButton>
+        <ion-buttons left>
+            <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons right>
+            <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>FLEXIBLE FITNESS</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="welcome-screen" style="margin: 15% auto 0;">
+        <div class="profile-upload">
+            <div class="profile-img" (click)="upload()" style="border-radius:0;">
+                <img [src]="imgSrc" style="border-radius:0;">
+            </div>
+        </div>
+        <div class="welcome-heading">Welcome {{name}}</div>
+        <div class="welcome-text">Snap your very first before photo to begin monitoring your progress.</div>
+        <div class="black-btn">
+            <button ion-button block (click)="getStarted()">GET STARTED</button>
+        </div>
+    </div>
+</ion-content>
+  
+  

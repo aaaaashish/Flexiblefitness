@@ -1,0 +1,62 @@
+<ion-header class="custom-header-inner">
+    <ion-navbar hideBackButton>
+        <ion-buttons left>
+            <button ion-button ios-arrow-back class="arrow-icon" (click)="backBtnFunc()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons right>
+            <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>FLEXIBLE FITNESS</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="measurement-screen">
+        <div class="global-radio">
+            <div class="question-field">
+                <ion-list class="mea-yes-list" *ngIf="forMale">
+                    <ion-item>
+                        <ion-input type="text" placeholder="Waist(inches)" [(ngModel)]="mWiast" (keyup)="mWaistValueCheckFunc()" (ionBlur)="mWaistValueCheckFunc()" [attr.maxlength]="3"></ion-input>
+                    </ion-item>
+                    <label *ngIf="mWaistErr">
+                        <p class="error" style="margin-top:5px;">Enter valid waist size.</p>
+                    </label>
+                </ion-list>
+                <ion-list class="mea-yes-list" *ngIf="forFemale">
+                    <ion-item>
+                        <ion-input type="text" placeholder="Waist(inches)" [(ngModel)]="fWiast" (keyup)="fWaistValueCheckFunc()" (ionBlur)="fWaistValueCheckFunc()" [attr.maxlength]="3"></ion-input>
+                    </ion-item>
+                    <label *ngIf="fWaistErr">
+                        <p class="error" style="margin-top:5px;">Enter valid waist size.</p>
+                    </label>
+                    <ion-item>
+                        <ion-input type="text" placeholder="Wrist(inches)" [(ngModel)]="fWrist" (keyup)="fWristValueCheckFunc()" (ionBlur)="fWristValueCheckFunc()" [attr.maxlength]="2"></ion-input>
+                    </ion-item>
+                    <label *ngIf="fWristErr">
+                        <p class="error" style="margin-top:5px;">Enter valid wrist size.</p>
+                    </label>
+                    <ion-item>
+                        <ion-input type="text" placeholder="Hip(inches)" [(ngModel)]="fHip" (keyup)="fHipValueCheckFunc()" (ionBlur)="fHipValueCheckFunc()" [attr.maxlength]="2"></ion-input>
+                    </ion-item>
+                    <label *ngIf="fHipErr">
+                        <p class="error" style="margin-top:5px;">Enter valid hip size.</p>
+                    </label>
+                    <ion-item>
+                        <ion-input type="text" placeholder="Forearm(inches)" [(ngModel)]="fForearm" (keyup)="fForearmValueCheckFunc()" (ionBlur)="fForearmValueCheckFunc()" [attr.maxlength]="2"></ion-input>
+                    </ion-item>
+                    <label *ngIf="fForearmErr">
+                        <p class="error" style="margin-top:5px;">Enter valid forearm size.</p>
+                    </label>
+                </ion-list>
+            </div>
+        </div>
+        <div class="black-btn">
+            <button ion-button block (click)="nextFunc()" *ngIf="forMale" [disabled]="mWiast=='' || mWaistErr==true">NEXT</button>
+            <button ion-button block (click)="nextFunc()" *ngIf="forFemale" [disabled]="fWiast=='' || fWrist=='' ||  fHip=='' || fForearm=='' || fWaistErr==true || fWristErr==true || fHipErr==true || fForearmErr==true">NEXT</button>
+        </div>
+    </div>
+</ion-content>
+

@@ -1,0 +1,33 @@
+<ion-content class="bg">
+    <ion-list class="workout-inner workout-video">    
+        <ion-card class="gym-img-row">
+            <div class="red-outline-btn iframe-div">
+                <iframe [src]="videoURL" frameborder="0"></iframe>
+            </div>
+        </ion-card>    
+        <ion-card class="block-card">
+            <div class="description">
+                <h2 class="card-title">DESCRIPTION</h2>
+                <p>{{descContent}}</p>
+            </div>
+            <div class="rules">
+                <h2 class="card-title">RULES</h2>
+                <p>{{rulesContent}}</p>
+            </div>
+        </ion-card>   
+    </ion-list>
+</ion-content>
+<ion-footer>
+    <ion-toolbar class="ftr-workDet">
+        <ion-grid style="padding: 0;">
+            <ion-row>
+                <ion-col col-6>
+                    <button ion-button color="danger" (click)="goBackFunc()" outline round block>BACK</button>
+                </ion-col>
+                <ion-col col-6>
+                    <button ion-button color="danger" (click)="finish()" outline round block>{{btnLabel}}</button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-toolbar>
+</ion-footer>

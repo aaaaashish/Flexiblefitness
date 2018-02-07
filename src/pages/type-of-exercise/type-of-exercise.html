@@ -1,0 +1,36 @@
+<ion-header class="custom-header-inner">
+    <ion-navbar hideBackButton>
+        <ion-buttons left>
+            <button ion-button ios-arrow-back class="arrow-icon" (click)="backBtnFunc()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons right>
+            <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>FLEXIBLE FITNESS</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="measurement-screen">
+        <div class="measurement-head">Which category best describes the type of activity that you do?</div>
+        <div class="custom-select">
+            <ion-list>
+                <ion-item class="select-field" >
+                    <ion-label class="hide_lbl">Types of activity</ion-label>
+                    <ion-select [(ngModel)]="typeOfExercise" class="cmpleSelect">
+                        <ion-option value="Light_endurance">Light endurance (e.g. brisk walk, dancing)</ion-option>
+                        <ion-option value="Heavy_endurance">Heavy endurance (e.g. running, swimming)</ion-option>
+                        <ion-option value="Combat_sports">Combat sports (e.g. martial arts, boxing)</ion-option>
+                        <ion-option value="Yoga">Yoga</ion-option>
+                    </ion-select>
+                </ion-item>
+            </ion-list>
+        </div>
+        <div class="black-btn">
+            <button ion-button block (click)="nextFunc()">NEXT</button>
+        </div>
+    </div>
+</ion-content>

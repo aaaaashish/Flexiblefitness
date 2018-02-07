@@ -1,0 +1,22 @@
+<ion-content>
+    <div class="measurement-screen" style="margin: 10% auto;">
+        <div class="measurement-head">How hard was that workout?</div>
+        <div class="global-radio">
+            <div class="radio-inner">
+                <input type="radio" id="hardness1" name="hardnessRadio" value="Piece_of_cake" [(ngModel)]="whardness">
+                <label class="pd-top" for="hardness1">Piece of cake</label>
+            </div>
+            <div class="radio-inner">
+                <input type="radio" id="hardness2" name="hardnessRadio" value="Just_the_right_difficulty" [(ngModel)]="whardness">
+                <label class="pd-top" for="hardness2">Just the right difficulty</label>
+            </div>
+            <div class="radio-inner">
+                <input type="radio" id="hardness3" name="hardnessRadio" value="Tone_it_down_a_notch" [(ngModel)]="whardness">
+                <label class="pd-top" for="hardness3">Tone it down a notch!</label>
+            </div>
+        </div>
+        <div class="black-btn">
+            <button ion-button block (click)="submitFunc()">SUBMIT</button>
+        </div>
+    </div>
+</ion-content>

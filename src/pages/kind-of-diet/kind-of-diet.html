@@ -1,0 +1,22 @@
+<ion-content>
+    <div class="measurement-screen">
+        <div class="measurement-head">What kind of diet do you follow?</div>
+        <div class="custom-select">
+            <ion-list>
+                <ion-item class="select-field" >
+                    <ion-label class="hide_lbl">Kind of diet</ion-label>
+                    <ion-select [(ngModel)]="kindOfDiet" class="cmpleSelect">
+                        <ion-option value="5">None, I eat anything</ion-option>
+                        <ion-option value="1">Paleo</ion-option>
+                        <ion-option value="2">Vegetarian</ion-option>
+                        <ion-option value="3">Vegan</ion-option>
+                        <ion-option value="4">Pescetarian</ion-option>
+                    </ion-select>
+                </ion-item>
+            </ion-list>
+        </div>
+        <div class="black-btn">
+            <button ion-button block (click)="onSubmit()">NEXT</button>
+        </div>
+    </div>
+</ion-content>

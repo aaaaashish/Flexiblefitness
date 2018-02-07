@@ -1,0 +1,13 @@
+<ion-content class="bg card-background-page">
+    <ion-list class="workout-inner free-user-list">    
+        <ion-card class="gym-img-row" *ngFor="let data of mealList" (click)="goToDetails(data)">
+            <div *ngIf="data.listArr.length!=0">
+                <div class="free-user-layer"></div>
+                <img [src]="data.img">
+                <div class="img-text today-btns">
+                    <div class="workout-name">{{data.name}}</div>
+                </div>
+            </div>
+        </ion-card>
+    </ion-list>  
+</ion-content>

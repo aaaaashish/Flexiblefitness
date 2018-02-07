@@ -1,0 +1,36 @@
+<ion-header class="custom-header-inner">
+    <ion-navbar hideBackButton>
+        <ion-buttons left>
+            <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons right>
+            <button ion-button icon-only class="tab_logout" (click)="backBtnFunc()">
+                <ion-icon name="close"></ion-icon>
+                <!-- <ion-icon><img class="header-img" src="assets/imgs/cross.png"></ion-icon> -->
+            </button>
+        </ion-buttons>
+        <ion-title>NOTIFICATION</ion-title>
+    </ion-navbar>
+</ion-header>    
+<ion-content class="bg outer-content">
+    <div class="notification">
+        <ion-list no-lines class="login-sliding-demo">
+            <ion-item-sliding *ngFor="let login of logins" #item>
+                <ion-item>
+                    <p class="noti-time">{{login.time}}</p>
+                    <div class="notification-txt">{{login.text}}</div>
+                </ion-item>
+                <ion-item-options  icon-start>
+                    <button ion-button class="eye-btn" >
+                        <ion-icon ios="ios-eye" md="md-eye"></ion-icon>
+                    </button>
+                    <button ion-button class="trash-btn" (click)="delete(item)">
+                        <ion-icon name="trash"></ion-icon>
+                    </button>
+                </ion-item-options>
+            </ion-item-sliding>        
+        </ion-list>
+    </div>
+</ion-content>  

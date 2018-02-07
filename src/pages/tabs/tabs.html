@@ -1,0 +1,26 @@
+<ion-header class="custom-header-inner">
+    <ion-navbar hideBackButton >
+        <ion-buttons left>
+            <button ion-button icon-only class="tab_noti" (click)="moreOptFunc($event)">
+                <ion-icon><img class="header-img" src="assets/imgs/addmore.png"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title text-center >FLEXIBLE FITNESS</ion-title>
+        <ion-buttons right>
+            <button ion-button icon-only class="tab_logout" (click)="logoutFunc()">
+                <ion-icon><img class="header-img" src="assets/imgs/logout-header.png"></ion-icon>
+            </button>
+            <!-- <button ion-button icon-only class="tab_noti" (click)="notify()">
+                <ion-icon><img class="header-img" src="assets/imgs/notification-icn.png"></ion-icon>
+            </button> -->
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>  
+<ion-content>
+    <ion-tabs class="main-tabs">
+        <ion-tab [root]="tab1Root" tabTitle="Home" (ionSelect)="tabClick($event)"></ion-tab>
+        <ion-tab [root]="tab2Root" tabTitle="Workout" (ionSelect)="tabClick($event)"></ion-tab>
+        <ion-tab [root]="tab3Root" tabTitle="Nutrition" (ionSelect)="tabClick($event)"></ion-tab>
+        <ion-tab [root]="tab4Root" tabTitle="Settings" (ionSelect)="tabClick($event)"></ion-tab>      
+    </ion-tabs>    
+</ion-content>

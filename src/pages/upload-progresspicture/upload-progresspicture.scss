@@ -1,0 +1,18 @@
+page-upload-progresspicture {
+    .block {
+        position: relative;
+        .deleteIcon {
+          position: absolute;
+          color: #b62020 ;
+          margin-left: 80% ;
+        }
+        .deleteIcon:before {
+          font-size: 30px ;
+        }
+    }
+
+    .block .img-loaded + ion-spinner {
+      display:none;
+    }
+        
+}

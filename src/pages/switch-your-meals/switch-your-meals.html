@@ -1,0 +1,22 @@
+<ion-content>
+    <div class="measurement-screen">
+        <div class="measurement-head">How often do you want to switch up your meals?</div>
+        <div class="custom-select">
+            <ion-list>
+                <ion-item class="select-field" >
+                    <ion-label class="hide_lbl">Switch your meals</ion-label>
+                    <ion-select [(ngModel)]="switchMeals" class="cmpleSelect">
+                        <ion-option value="1">Every day</ion-option>
+                        <ion-option value="2">Twice a week</ion-option>
+                        <ion-option value="3">Once a week</ion-option>
+                        <ion-option value="4">Once a month</ion-option>
+                        <ion-option value="5">Never</ion-option>
+                    </ion-select>
+                </ion-item>
+            </ion-list>
+        </div>
+        <div class="black-btn">
+            <button ion-button block (click)="onSubmit(btnText)">{{btnText}}</button>
+        </div>
+    </div>
+</ion-content>

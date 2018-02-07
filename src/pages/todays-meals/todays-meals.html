@@ -1,0 +1,71 @@
+<ion-header class="custom-header-inner">
+    <ion-navbar hideBackButton>
+        <ion-buttons left>
+            <button ion-button ios-arrow-back class="arrow-icon" (click)="backBtnFunc()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons right>
+            <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>TODAY'S MEALS</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="bg card-background-page">
+    <ion-list class="workout-inner free-user-list" *ngIf="mealArr.length!=0">    
+        <ion-card class="gym-img-row" *ngFor="let data of mealArr">
+            <div class="free-user-layer"></div>
+            <img [src]="data.foodImage">
+            <div class="img-text today-btns">
+                <div class="workout-name">{{data.mealLabel}}</div>       
+                <ion-row>
+                    <ion-col col-4 right>
+                        <button [ngClass]="{'active':data.ateThis}" ion-button color="danger" (click)="ateThisFunc(data)" block outline round>I ATE THIS</button>
+                    </ion-col>
+                    <ion-col col-4>
+                        <button ion-button color="danger" (click)="changeThisfunc(data)" block outline round>CHANGE THIS</button>
+                    </ion-col>
+                    <ion-col col-4 left>
+                        <button ion-button color="danger" (click)="viewRecipe(data)" block outline round>VIEW RECIPE</button>
+                    </ion-col>
+                </ion-row>
+            </div>
+        </ion-card>
+    </ion-list>
+    <ion-card *ngIf="noListFound">
+        <ion-card-content class="no-rec-found">
+            Your caloric intake is too low. Please select another meal frequency.
+        </ion-card-content>
+    </ion-card>
+</ion-content>
+<ion-footer style="background:#ff6356 !important" class="today-ftr">
+    <ion-toolbar>
+        <ion-grid class="footer-grid" *ngIf="delToDoorStatus=='true'">
+            <ion-row>
+                <ion-col col-6>
+                    <ion-buttons class="today-lst" (click)="weekly()"> 
+                        <button ion-button color="light" block outline round>Weekly Grocery List</button>
+                    </ion-buttons> 
+                </ion-col>
+                <ion-col col-6>
+                    <ion-buttons class="today-lst" (click)="mealsDelivered()"> 
+                        <button ion-button color="light" block  outline round>Deliver Meals</button>
+                    </ion-buttons>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-grid class="footer-grid" *ngIf="delToDoorStatus=='false'">
+                <ion-row>
+                    <ion-col>
+                        <ion-buttons class="today-lst" (click)="weekly()"> 
+                            <button ion-button color="light" block outline round>Weekly Grocery List</button>
+                        </ion-buttons> 
+                    </ion-col>
+                </ion-row>
+            </ion-grid> 
+    </ion-toolbar>
+</ion-footer>
+
+  

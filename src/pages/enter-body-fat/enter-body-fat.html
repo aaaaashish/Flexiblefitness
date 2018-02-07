@@ -1,0 +1,36 @@
+<ion-header class="custom-header-inner">
+    <ion-navbar hideBackButton>
+        <ion-buttons left>
+            <button ion-button ios-arrow-back class="arrow-icon" (click)="backBtnFunc()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons right>
+            <button ion-button ios-arrow-back class="arrow-icon" style="visibility: hidden;">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>FLEXIBLE FITNESS</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="measurement-screen">
+        <div class="measurement-head">Please enter your bodyfat percentage</div>
+        <div class="global-radio">
+            <div class="question-field">
+                <ion-list>
+                    <ion-item>
+                        <ion-input type="text" [(ngModel)]="fatValue" (keyup)="checkValueFunc()" (ionBlur)="checkValueFunc()" [attr.maxlength]="5"></ion-input>
+                    </ion-item>
+                    <label *ngIf="bodyFatErr">
+                        <p class="error" style="margin-top:5px;">Enter valid bodyfat percentage.</p>
+                    </label>
+                </ion-list>
+            </div>
+        </div>
+        <div class="black-btn">
+            <button ion-button block (click)="nextFunc()" [disabled]="fatValue=='' || bodyFatErr==true">NEXT</button>
+        </div>
+    </div>
+</ion-content>
+

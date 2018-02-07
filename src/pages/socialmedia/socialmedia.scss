@@ -1,0 +1,44 @@
+page-socialmedia {
+    $block-width : 70px;    
+    .media-banner img{
+        width: 100%;
+    }    
+    .follow-heading{
+        text-align: center;
+        color: #4d4d4d; 
+        font-size: 1.8rem; 
+        margin: 0; 
+        padding: 7vh 0 3vh;
+    }    
+    .social-icons{
+        text-align: center;
+        margin: 20px 0 0;    
+        span{
+            width: $block-width;
+            height: $block-width; 
+            text-align: center; 
+            line-height: $block-width + 5px; 
+            display: inline-block; 
+            margin: 0 15px; 
+            border-radius: 50%;
+            font-size: 25px;
+            color: #fff;
+        }    
+        .facebook{
+            background-color: #3f5a9e;    
+            img{
+                width: 15px;
+                margin-bottom: 8px;
+            }
+        }    
+        .twitter{
+            background-color: #00bdf5;
+        }    
+        .google{
+            background-color: #f4511e;
+        }  
+        .instagram{
+            background-color: #c13584;
+        }  
+    }
+}

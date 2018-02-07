@@ -1,0 +1,239 @@
+<ion-content>
+    <!-- <ion-searchbar no-line class="content-search" placeholder="Search"></ion-searchbar> -->
+    <ion-list no-lines class="food-tracking">
+        <ion-card class="current-intake-card">
+            <div class="custom-table">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>Target </th>
+                            <th>Current Intake </th>
+                            <th>Remaining </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Calories</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                        </tr>
+                        <tr>
+                            <td>Protein</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                        </tr>
+                        <tr>
+                            <td>Fat</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                        </tr>
+                        <tr>
+                            <td>Carbohydrates</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="custom-checkbox checkbox-grey">
+                <ion-item>
+                    <ion-label>Roll calories to next day</ion-label>
+                    <ion-checkbox class="m-t-4" color="dark" checked="false"></ion-checkbox>
+                </ion-item>
+            </div>
+        </ion-card>      
+        <ion-card class="table-card">
+            <ion-card-header class="card-title">Breakfast <button class="add-btn" ion-button small clear (click)="addFoodFunc()"><img src="assets/imgs/add.png"></button></ion-card-header>
+            <div class="custom-table">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Food</th>
+                            <th>Calories</th>
+                            <th>Protein </th>
+                            <th>Fat</th>
+                            <th>Carbohydrates</th>
+                            <th>Favorite?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>
+                                <div class="custom-checkbox checkbox-grey">
+                                    <ion-item class="m-0">
+                                        <ion-checkbox class="m-0" color="dark" checked="false"></ion-checkbox>
+                                    </ion-item>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>
+                                <div class="custom-checkbox checkbox-grey">
+                                    <ion-item class="m-0">
+                                        <ion-checkbox class="m-0" color="dark" checked="false"></ion-checkbox>
+                                    </ion-item>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </ion-card>      
+        <ion-card class="table-card">
+            <ion-card-header class="card-title">Lunch <button class="add-btn" ion-button small clear><img src="assets/imgs/add.png"></button></ion-card-header>
+            <div class="custom-table">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Food</th>
+                            <th>Calories</th>
+                            <th>Protein </th>
+                            <th>Fat</th>
+                            <th>Carbohydrates</th>
+                            <th>Favorite?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>
+                                <div class="custom-checkbox checkbox-grey">
+                                    <ion-item class="m-0">
+                                        <ion-checkbox class="m-0" color="dark" checked="false"></ion-checkbox>
+                                    </ion-item>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>
+                                <div class="custom-checkbox checkbox-grey">
+                                    <ion-item class="m-0">
+                                        <ion-checkbox class="m-0" color="dark" checked="false"></ion-checkbox>
+                                    </ion-item>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </ion-card>      
+        <ion-card class="table-card">
+            <ion-card-header class="card-title">Dinner <button class="add-btn" ion-button small clear><img src="assets/imgs/add.png"></button></ion-card-header>
+            <div class="custom-table">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Food</th>
+                            <th>Calories</th>
+                            <th>Protein </th>
+                            <th>Fat</th>
+                            <th>Carbohydrates</th>
+                            <th>Favorite?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>
+                                <div class="custom-checkbox checkbox-grey">
+                                    <ion-item class="m-0">
+                                        <ion-checkbox class="m-0" color="dark" checked="false"></ion-checkbox>
+                                    </ion-item>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>
+                                <div class="custom-checkbox checkbox-grey">
+                                    <ion-item class="m-0">
+                                        <ion-checkbox class="m-0" color="dark" checked="false"></ion-checkbox>
+                                    </ion-item>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </ion-card>      
+        <ion-card class="table-card">
+            <ion-card-header class="card-title">Snacks <button class="add-btn" ion-button small clear><img src="assets/imgs/add.png"></button></ion-card-header>
+            <div class="custom-table">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Food</th>
+                            <th>Calories</th>
+                            <th>Protein </th>
+                            <th>Fat</th>
+                            <th>Carbohydrates</th>
+                            <th>Favorite?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>
+                                <div class="custom-checkbox checkbox-grey">
+                                    <ion-item class="m-0">
+                                        <ion-checkbox class="m-0" color="dark" checked="false"></ion-checkbox>
+                                    </ion-item>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>
+                                <div class="custom-checkbox checkbox-grey">
+                                    <ion-item class="m-0">
+                                        <ion-checkbox class="m-0" color="dark" checked="false"></ion-checkbox>
+                                    </ion-item>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </ion-card>      
+    </ion-list>
+</ion-content>
